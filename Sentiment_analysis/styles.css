@@ -1,0 +1,155 @@
+/* Basic styling */
+body {
+    background: linear-gradient(135deg, #000000, #ff0000);
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+    margin: 0; /* Remove default margin */
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Generic fade-in animation class */
+.fade-in {
+    animation: fadeIn 2s ease-in-out forwards;
+    opacity: 0; /* Start hidden for animation */
+}
+
+/* Animation for Project 42 */
+.animated-title {
+    font-size: 4em;
+    color: #ff0000;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.5); /* Subtle shadow for depth */
+}
+
+/* Styling for project name */
+.project-name {
+    margin-top: 0;
+    font-size: 2em;
+    color: #fff;
+}
+
+/* Main content styling */
+.main-content {
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Styling for selection section */
+.selection-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap; /* Make it responsive */
+}
+
+.option {
+    margin: 20px; /* Increase margin for better spacing */
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s; /* Added box-shadow transition */
+    padding: 10px; /* Add padding for clickable area */
+    border-radius: 8px; /* Rounded corners */
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+}
+
+.option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+}
+
+/* Styling for selection images */
+.option img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Circular images */
+    transition: transform 0.3s;
+}
+
+.option p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+/* Button styling */
+#analyze-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ffcc00; /* Golden color */
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s;
+}
+
+#analyze-button:hover {
+    background-color: #ffd700; /* A lighter shade on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Input fields styling */
+input[type="number"], input[type="text"], textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ffcc00;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #fff;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+/* Output Section Styling */
+#output-section {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: rgba(50, 205, 50, 0.1); /* Light green background */
+    color: #fff;
+    text-align: left;
+}
+
+/* Sentiment Colors */
+.positive {
+    color: #4caf50; /* Green */
+}
+
+.negative {
+    color: #f44336; /* Red */
+}
+
+.neutral {
+    color: #ffeb3b; /* Yellow */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animated-title {
+        font-size: 2.5em;
+    }
+
+    .project-name {
+        font-size: 1.5em;
+    }
+
+    .option img {
+        width: 80px;
+        height: 80px;
+    }
+
+    #analyze-button {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+}

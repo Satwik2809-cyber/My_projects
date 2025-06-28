@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 42</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Animation Keyframes */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Styling for Animations */
+        .fade-in {
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        /* Initial Hidden State */
+        .hidden {
+            display: none;
+        }
+
+        /* Styling for Background and Text */
+        body {
+            background: linear-gradient(135deg, #ff4e50, #000);
+            color: #fff;
+            text-align: center;
+        }
+
+        .title-section {
+            margin-top: 50px;
+        }
+
+        .selection-section {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .option {
+            cursor: pointer;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .option:hover {
+            transform: scale(1.1);
+        }
+
+        .option img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .selected {
+            border: 2px solid #ff4e50;
+        }
+
+        /* Styling for Buttons */
+        #analyze-button {
+            background-color: #ff4e50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #analyze-button:hover {
+            background-color: #e43e3e;
+        }
+
+        /* Output Section Styling */
+        #output-section {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #sentiment-chart {
+            max-width: 100%;
+            margin-top: 20px;
+        }
+
+        #loading-indicator {
+            display: none;
+            margin-top: 20px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Project Title Section -->
+    <div class="title-section">
+        <h1 id="main-title" class="animated-title">Project 42</h1>
+        <h2 id="project-name" class="project-name hidden">Sentiment Analysis Dashboard</h2>
+    </div>
+
+    <!-- Main Content Wrapper -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Selection Section -->
+        <div class="selection-section">
+            <div class="option" onclick="selectOption('twitter')">
+                <img src="twitter-icon.png" alt="Twitter">
+                <p>Twitter</p>
+            </div>
+            <div class="option" onclick="selectOption('instagram')">
+                <img src="instagram-icon.png" alt="Instagram">
+                <p>Instagram</p>
+            </div>
+            <div class="option" onclick="selectOption('custom_text')">
+                <img src="text-icon.png" alt="Custom Text">
+                <p>Custom Text</p>
+            </div>
+        </div>
+
+        <!-- Input Section -->
+        <div id="input-section" class="input-section">
+            <!-- Inputs will be shown here based on the selection -->
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-indicator">Loading...</div>
+
+        <!-- Analyze Button -->
+        <button id="analyze-button" onclick="analyzeSentiment()">Analyze</button>
+
+        <!-- Output Section -->
+        <div id="output-section" class="hidden">
+            <h3>Analysis Results</h3>
+            <div id="error-message" style="color: red;"></div>
+            <div id="analysis-summary"></div>
+            <canvas id="sentiment-chart"></canvas>
+            <div id="sentiment-details"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Animation sequence for displaying titles and content
+        window.onload = function() {
+            const mainTitle = document.getElementById('main-title');
+            const projectName = document.getElementById('project-name');
+            const mainContent = document.getElementById('main-content');
+
+            // Step 1: Animate "Project 42" with a fade-in effect
+            mainTitle.classList.add('fade-in');
+
+            // Step 2: Show project name after "Project 42" animation ends
+            setTimeout(() => {
+                projectName.classList.remove('hidden');
+                projectName.classList.add('fade-in');
+            }, 2000);
+
+            // Step 3: Show main content after project name animation ends
+            setTimeout(() => {
+                mainContent.classList.remove('hidden');
+                mainContent.classList.add('fade-in');
+            }, 4000);
+        };
+    </script>
+</body>
+</html>
